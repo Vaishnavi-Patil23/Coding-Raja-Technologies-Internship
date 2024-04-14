@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="temp1.css"/>
+    <title>Resume Generator</title>
+</head>
+<body>
+
+   <div class="container " id="cv-form">
+    <h1 class=" headline text-center"> RESUME GENERATOR</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Personal Information</h3>
+
+            <div class="form-group mt-2">
+                <label for="nameField">Your Name</label>
+                <input type="text" id="nameField" class="form-control backgr"/>
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="contactField">Your Phone No.</label>
+                <input type="text" id="contactField" class="form-control backgr"/>
+            </div>
+
+            <div class="form-group mt-2">
+                <label for="addressField">Address</label>
+                <textarea type="text" id="addressField" class="form-control backgr" rows="5"></textarea>
+            </div>
+            <div class="form-group mt-3">
+                <label for="">select your photo</label>
+                <input id="imgField" type="file" class="form-control backgr"/>
+            </div>
+
+            <p class="text-secondary mt-3">Important Links</p>
+
+            <div class="form-group mt-2">
+                <label for="fbField">facebook</label>
+                <input type="text" id="fbField" class="form-control backgr"/>
+            </div>
+            <div class="form-group mt-2">
+                <label for="InstaField">Instagram</label>
+                <input type="text" id="instaField" class="form-control backgr"/>
+            </div>
+            <div class="form-group mt-2">
+                <label for="linkField">LinkedIn</label>
+                <input type="text" id="linkField" class="form-control backgr"/>
+            </div>
+
+        </div>
+        <div class="col-md-6">
+            <h3>Professional Information</h3>
+
+            <div class="form-group mt-2">
+                <label for="">Objective</label>
+                <textarea id="objField" type="text" id="addressField" class="form-control weField backgr" ></textarea>
+            </div>
+
+            <div class="form-group mt-2" id="we">
+                <label for="">Work Experience</label>
+                <textarea class="form-control weField backgr" rows="3"></textarea>
+                <div class="container text-center mt-2" id="weAddButton">
+                    <button onclick="addNewWEField()"class="btn btn-primary btn-sm">ADD</button>
+                </div>
+            </div>
+
+            <div class="form-group mt-2" id="aq">
+                <label for="">Academic Qualification</label>
+                <textarea class="form-control aqField backgr" rows="3" ></textarea>
+                <div class="container text-center mt-2" id="aqAddButton">
+                    <button onclick="addNewAQField()"class="btn btn-primary btn-sm">ADD</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container text-center mt-3">
+        <button onclick="generateCV()"class="btn btn-primary btn-lg">Generate CV</button>
+    </div>
+</div>
+<hr>
+
+
+<!-- cv template -->
+
+<div class="container" id="cv-template">
+    <div class="row">
+        <div class="col-md-4 text-center background">
+            <!-- 1st col -->
+
+            <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJ8AAACUCAMAAAC6AgsRAAAAY1BMVEX///8AAAD8/PyBgYEEBAT4+PgICAjz8/PV1dVHR0dxcXHn5+dBQUFoaGjPz88xMTEQEBAVFRUpKSmZmZlZWVmtra0aGhq+vr5QUFDJycmSkpI5OTnt7e3e3t6Kioqzs7OioqJNKz2FAAAEiUlEQVR4nO2bi5aiMAyGaaEWKII3QBR03v8pN2nBy4wXVCDuOfmWZRyGyz9p0qYp43kMwzAMwzAMwzAMwzAMwzCPkXa79Q0xqEXBf3mlD7711PfIVHYXHte+76+PoTod+wIk4GkdHjLRkR1Crd0PyIG2VEpX8dJJC9yXZVxppeRXtK/2zG4lxGyG8mYoED+udgZ+Qg+4WYPGC4DWfu7jMm5IndA2HoZtGInbRKELZKJmtt4vvSaadV53RSBmUeO5c0hw5qt98Leb+sAJ/ZpQIEauJ/OiDYq/+gJR5JJuMJE4QoDzucC4IRCOR6H9JYj0Qb+8O0XuDXlweKepwgOHV8/ci91TDBvZRtL0gGHKJ/KEKOkGEXju/Km+OWX/4u2f6svowteT9e3IvaL2aBTiM8Pn8kRIoM3pk17VQ19F6H999JWEWX7aQ19K1f0Bpoc+Q6QPH6pWT+WtqFJUmzj16J/pRg948vqpvjVV/qxwC2FSObubn0KGmoXuxOmxVtE+irjLTPhaSioPVPCvysTi5vQDJyALkVUwyVRE8StR4eFh+x60cudR6LM7s7ljPjTgxni/SkeT6rNber8PXKVukkdY5YBn55n4OwOG2a/I8nbooKzCgHMdk87jgtMeSI5UM7dfAr0KhxE3iXM73M+rbyhPYu0PtvUWpbkKUYAit2uYWGrC1OVKoqfCn83i5HyLzU+oyKaV17RFLJiLpOv5Nltl2/k6raXXla7IsQKVLZLjB2s0hbWP75D3f9AZ6twXs+leA1cTlOp2bL3XkdqYpmmM0V9ivTYxth1KmO/iTZTs9/sk2sS73K5xOZ006akbHuzaVpPHxZ/cqojzRrt4Jpr/ShsIdeknbVIQnHYunUn8srZhQyLQRqnJ58WFuC7362rmxTw3ZOuE0LLldtFOhMQpr+pUumnTYltqquWjMO4mQgLXBM8pdDBzh9yROJzcfnZp4Wd/Xjm6Su+DiyMofv8z7SIDOpRs/KJNRR9ik9bCb+SUXggdX7o5e9oziXDaJp2wG4Qeo0yc2z1XGDhHTMrpehkpq8z1Iv3sZ7esmk5fGVm/Qvd7VB0SznTuRBGVU+lLo6vZZI8GtqdH6ejK0MeViR7W1O5aUkRGnZKKUbCFKB3js3r63oUR4ZpYY1FuxGbGjCBfvC6vFbjI5bjVSrh3lYigd9d3oc9GcVKNWuuF9jXtmPty+7ZjsRm5ffNV/47vt0RglY/avlJt39J21rgdd5jL37PdhQ3zMdtXb98IjQt5WHgb86WxsvhEnhVYlOPJk/Zdpk/sh+88jde+TdQnJX2gDy+PmlG0YXZ0XL4t7czyOEpxC/otfRCfha+72tfe4LmqbJeKPgwPu23M8EtK9m7h8oWs+b7GZXi644D64H7luY3eFWevLYfXZ++3+1ifYzf8kjpOXmU8gDq8PJbDL2liYv/sXb++wBA3dBaDqy1qb6diHyMSPUK1Q8p6NZC+Qg/fv8DtzDuztpuM8cod2G/nD8OhHr6UMGiRVo5Rkh7wlt/ypysMwzAMwzAMwzAMwzAMw5DyD/ElKn94OKG5AAAAAElFTkSuQmCC"
+            alt=""
+            class="img-fluid"
+            id="imgTemplate"
+            />
+            <div class="container">
+                <p id="nameT1">Vaishnavi Patil</p>
+                <p id="contactT">9877564321</p>
+                <p id="addressT">Girija colony jamner</p>
+
+                <hr/>
+
+                <p>
+                    <a id="fbT" href="#1">facebook</a>
+                </p>
+                <p>
+                    <a id="instaT" href="#1">Instagram</a>
+                </p>
+                <p>
+                    <a id="linkedT" href="#1">LinkedIn</a>
+                </p>
+            </div>
+        </div>
+        <div class="col-md-8 py-5"> 
+            <!-- 2ndcol -->
+            <h1 id="nameT2" class="text-center" style="font-weight:980">Vaishnavi Patil</h1>
+           
+            <!-- obj card -->
+            <div class="card mt-4">
+                <div class="card-header background">
+                    <h3>Objective</h3>
+                </div>
+                <div class="card-body">
+                    <p id="objT">Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis dolorum dolore assumenda impedit, incidunt explicabo officia officiis necessitatibus voluptatum quia velit est placeat enim neque deleniti sunt omnis nihil natus.</p>
+                </div>
+            </div>
+
+            <!-- work experience -->
+            <div class="card mt-4">
+                <div class="card-header background">
+                    <h3>Work Experience</h3>
+                </div>
+                <div class="card-body">
+                    <ul id="weT">
+                        <li>
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+                        </li>
+                    </ul>
+                    
+                </div>
+            </div>
+
+<!-- academic qualification -->
+
+<div class="card mt-4">
+    <div class="card-header background">
+        <h3>Academic qualification</h3>
+    </div>
+    <div class="card-body">
+        <ul id="aqT">
+            <li>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+            </li>
+        </ul>
+    
+    </div>
+</div>
+
+<div class="container mt-3 text-center">
+    <button onclick="printCV()" class="btn background">Print CV</button>
+</div>
+
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="temp1.js"></script>
+</body>
+</html>

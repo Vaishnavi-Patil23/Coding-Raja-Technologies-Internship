@@ -1,0 +1,100 @@
+<!-- index.html -->
+<!DOCTYPE html> 
+<html lang="en"> 
+
+<head> 
+	<meta charset="UTF-8" /> 
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" /> 
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" /> 
+	<title>Resume Creator</title> 
+	<!-- style link here -->
+	<link rel="stylesheet" href="temp2.css" /> 
+</head> 
+
+<body> 
+	<!-- input container starts here -->
+	<section class="resume-builder"> 
+		<div class="container"> 
+			<h1>Resume Creator</h1> 
+			<div class="resume_container"> 
+				<form class="inputField"> 
+                    <p>Name:</p>
+					<input type="text"
+						name="name"
+						
+						title="Enter Your Name" /> 
+                    <p>Title:</p>
+					<input type="text"
+						name="title"
+						
+						title="Enter Title/Sub Heading" /> 
+                    <p>work Experience:</p>
+					<textarea name="work_experience"
+							placeholder="Work Experience"
+							title="Enter Your Work Experience">
+					</textarea> 
+                    <p>Academic details:</p>
+					<textarea name="academic_details"
+							placeholder="Academic Details"
+							cols="40" rows="3"
+							title="Enter Your Academic Details"> 
+					</textarea> 
+                    <p>Objective:</p>
+					<input type="text"
+						title="Enter Your Objective"
+						name="objective" /> 
+                    <p>Skills:</p>
+					<textarea name="skills"
+							title="Enter Your Skills"
+							placeholder="Skills" cols="40"
+							rows="3"> 
+					</textarea> 
+                    <p>Projects:</p>
+					<textarea name="projects"
+							title="Enter Your Projects"
+							placeholder="Projects"
+							cols="40"
+							rows="3"> 
+					</textarea> 
+                    <p>Achievements:</p>
+					<textarea name="achievements"
+							placeholder="Achievements"
+							title="Enter Your Achievements"> 
+					</textarea> 
+                    <p>Contact:</p>
+					<textarea name="contact"
+							placeholder="Contact Information"
+							cols="40" rows="3"
+							title="Enter Your Contact Information"> 
+					</textarea> 
+				</form> 
+			</div> 
+			<p class="credit"> 
+				Created by 
+				<a href= 
+"https://auth.geeksforgeeks.org/user/lunatic1/articles"
+				target="_blank"> 
+					lunatic1 
+				</a> 
+			</p> 
+			<p class="tip"> 
+				**You can use markup in the text area for text decoration** 
+			</p> 
+		</div> 
+	</section> 
+	<!-- input container ends here -->
+
+	<!-- output container starts here -->
+	<div class="output_container"></div> 
+	<!-- output container ends here -->
+
+	<!-- preview button -->
+	<button onclick="hide()"> 
+		Generate / Edit 
+	</button> 
+
+	<!-- script link here -->
+	<script src="temp2.js"></script> 
+</body> 
+
+</html>

@@ -1,0 +1,41 @@
+body{
+    background-color:rgb(224, 234, 255);
+}
+.temp{
+    width:200px;
+    height: 200px;
+    background-color: rgb(122, 221, 221);
+    padding-top: 50px;
+    padding: 20px;
+    box-shadow: 10px 10px rgb(46, 46, 46);
+    border: 2px;
+}
+.templates{
+    height: 300px;
+    display: flex;
+    justify-content: space-between;
+    padding: 70px;
+    background-color: rgba(122, 221, 221, 0.39);;
+}
+template-selection{
+    margin:40px;
+    padding: 20px;
+}
+a{
+    margin:30%;
+    padding-top: 50px;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color:black;
+    font-weight: 700;
+}
+h1{
+    background-color: aliceblue;
+    margin: 0;
+}
+h2{
+    color: rgba(8, 6, 6, 0.548);
+    padding-top:10px;
+}
+

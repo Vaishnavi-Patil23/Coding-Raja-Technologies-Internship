@@ -1,0 +1,31 @@
+/* #cv-form{
+    display: none;
+} */
+body
+{
+    background-color:rgb(255, 255, 196) ;
+}
+#CV-template
+{
+    display:none;
+}
+.background
+{
+    background-color:rgb(214, 255, 103)
+}
+img{
+    border-radius: 50%;
+    width:200px;
+}
+
+.headline
+{
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+.backgr{
+    background-color:rgba(217, 255, 0, 0.164);
+}
+hr{
+
+    margin-bottom: 20px;
+}

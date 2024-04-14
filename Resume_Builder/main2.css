@@ -1,0 +1,35 @@
+/* styles.css */
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.template-selection ul {
+    list-style: none;
+    padding: 0;
+}
+
+.template-selection li {
+    margin-bottom: 10px;
+}
+
+.template1, .template2 {
+    border: 2px solid #333;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.template1 h1, .template2 h1 {
+    text-align: center;
+}
+
+.personal-info, .education, .experience, .skills, .projects {
+    margin-bottom: 20px;
+}
+
+.skills, .projects {
+    border-top: 1px solid #999;
+    padding-top: 10px;
+}
